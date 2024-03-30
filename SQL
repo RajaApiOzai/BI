@@ -1,0 +1,17 @@
+SELECT
+    o.Date AS Order_Date,
+    pc.CategoryName,
+    p.ProdName AS product_name,
+    p.Price AS product_price,
+    o.Quantity AS order_qty,
+    c.CustomerCity,
+    c.CustomerEmail,
+    o.Quantity * p.Price AS total_sales
+FROM
+    pt-b-418717.Task1.Orders AS o
+JOIN
+    pt-b-418717.Task1.Customers AS c ON o.CustomerID = c.CustomerID
+JOIN
+    pt-b-418717.Task1.Products AS p ON o.ProdNumber = p.ProdNumber
+JOIN
+    pt-b-418717.Task1.ProductCategory AS pc ON p.Category = pc.CategoryID;
